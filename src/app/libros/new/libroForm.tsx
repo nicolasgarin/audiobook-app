@@ -48,33 +48,65 @@ export function LibroForm({ libro }: any) {
   return (
     <div className="flex">
     <form onSubmit={onSubmit}>
-      <Label>Nombre del libro</Label>
-      <Input {...register("titulo")} />
-      <Label>Titulo original</Label>
-      <Input {...register("tituloOriginal")} />
-      <Label>Categoria</Label>
-      <Input {...register("categoria")} />
-      <Label>Autor</Label>
-      <Input {...register("autor")} />
-      <Label>Año de publicacion</Label>
-      <Input type="number" {...register("anioPublicacion")} />
-      <Label>Tipo</Label>
-      <Input {...register("tipo")} />
-      <Label>Episodios</Label>
-      <Input type="number" {...register("episodios")} />
-      <Label>Duracion (hs)</Label>
-      <Input type="number" {...register("duracionHs")} />
-      <Label>Duracion (min)</Label>
-      <Input type="number" {...register("duracionMin")} />
-      <Label>Idioma original</Label>
-      <Input {...register("idiomaOriginal")} />
-      <Label>Idioma escuchado</Label>
-      <Input {...register("idiomaEscuchado")} />
-      <Label>Portada</Label>
-      <Input {...register("portada")} />
-      <Label>Puntuacion</Label>
-      <Input type="number" {...register("puntuacion")} />
+      <div className="grid grid-cols-2">
+        <div>
+          <div className="flex flex-col gap-4">
+            <Label>Nombre del libro</Label>
+            <Input {...register("titulo")} />
+          </div>
+          <div className="flex flex-col gap-4">
+            <Label>Titulo original</Label>
+            <Input {...register("tituloOriginal")} />
+          </div>
+          <div className="flex flex-col gap-4">
+            <Label>Categoria</Label>
+            <Input {...register("categoria")} />
+          </div>
+          <div className="flex flex-col gap-4">
+            <Label>Autor</Label>
+            <Input {...register("autor")} />
+          </div>
+          <div className="flex flex-col gap-4">
+            <Label>Año de publicacion</Label>
+            <Input type="number" {...register("anioPublicacion")} />
+          </div>
+        </div>
+        <div>
+          <div className="flex flex-col gap-4">
+            <Label>Tipo</Label>
+            <Input {...register("tipo")} />
+          </div>
+          <div className="flex flex-col gap-4">
+            <Label>Episodios</Label>
+            <Input type="number" {...register("episodios")} />
+          </div>
+          <div className="flex flex-col gap-4">
+            <Label>Duracion (hs)</Label>
+            <Input type="number" {...register("duracionHs")} />
+          </div>
+          <div className="flex flex-col gap-4">
+            <Label>Duracion (min)</Label>
+            <Input type="number" {...register("duracionMin")} />
+          </div>
+          <div className="flex flex-col gap-4">
+            <Label>Idioma original</Label>
+            <Input {...register("idiomaOriginal")} />
+          </div>
+          <div className="flex flex-col gap-4">
+            <Label>Idioma escuchado</Label>
+            <Input {...register("idiomaEscuchado")} />
+          </div>
+          <div className="flex flex-col gap-4">
+            <Label>Portada</Label>
+            <Input {...register("portada")} />
+          </div>
+          <div className="flex flex-col gap-4">
+            <Label>Puntuacion</Label>
+            <Input type="number" {...register("puntuacion")} />
+          </div>
+      </div>
       <Button>{params.id ? "Editar libro" : "Registar libro"}</Button>
+      </div>
     </form>
     </div>
   );
