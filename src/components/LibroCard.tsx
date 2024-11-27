@@ -13,24 +13,17 @@ export function LibroCard({ libro }: any) {
   }
 
   return (
-    <Card className="bg-violet-900 border-violet-950">
+    <Card className="bg-slate-800 border-slate-200 text-slate-300">
       <div
-        className="w-full h-48 bg-slate-200 bg-cover bg-center rounded-t-lg"
+        className="w-full h-72  bg-contain bg-no-repeat bg-center bg-slate-950 rounded-t-lg"
         style={{ backgroundImage: `url(${libro.portada})` }}
       ></div>
-      <CardContent className="p-6">
-        <CardTitle className="text-violet-300">{libro.titulo}</CardTitle>
+      <CardContent className="p-6  rounded-b-lg">
+        <CardTitle className="text-slate-300">{libro.titulo}</CardTitle>
+        <div>{libro.autor}</div>
+
         <CardFooter className="flex justify-between p-0">
-          <Button onClick={() => router.push(`/libros/${libro.id}`)} variant="default">Ver</Button>
-          <Button
-            onClick={(e) => {
-              e.stopPropagation();
-              handleDeleteLibro(libro.id);
-            }}
-            variant="destructive"
-          >
-            x
-          </Button>
+          <span className="flex"><img src="/star.svg" className="w-4 mr-2" alt="star" />{libro.puntuacion}</span>
         </CardFooter>
       </CardContent>
     </Card>
