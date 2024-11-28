@@ -2,6 +2,7 @@ import React from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { LibroForm } from './libroForm'
 import { getLibro } from '../libros.api'
+import { useRouter } from "next/navigation";
 
 type Props = {
     params: {
@@ -9,10 +10,13 @@ type Props = {
     }
 }
 
+
 async function NewLibrosPage({params}:Props) {
     const libro = await getLibro(params.id)
+
   return (
     <div className='h-screen flex justify-center items-center'>
+
         <Card className='flex'>
             <div>
             <CardHeader>

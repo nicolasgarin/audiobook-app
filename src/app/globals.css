@@ -82,6 +82,7 @@
 }
 
 .front,
-.back {
+.back,
+.img {
   backface-visibility: hidden;
 }
