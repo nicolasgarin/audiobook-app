@@ -23,22 +23,36 @@ async function LibroDetailPage({ params }: Props) {
       <div className="grid grid-cols-2">
         <div className="text-slate-300">
           <h1 className="text-6xl">{libro.titulo}</h1>
-          <p>{libro.autor}</p>
-          <div>
-          <Button
-            variant="default"
-            onClick={() => {
-              router.push(`/libros/${libro.id}/edit`);
-            }}
-          >
-            Editar
-          </Button>
-          <Button
-            variant="destructive"
-            onClick={() => handleDeleteLibro(libro.id)}
-          >
-            Eliminar
-          </Button>
+          <p className="text-2xl">{libro.autor}</p>
+          <div className="grid grid-cols-2">
+            <div className="flex flex-col gap-8">
+              <p>Información tecnica</p>
+              {libro.tituloOriginal != "" && <p>Titulo Original: {libro.tituloOriginal}</p>}
+              <p>Género: {libro.categoria}</p>
+              <p>Año de publicación: {libro.anioPublicacion}</p>
+              <p>Tipo de publicación: {libro.tipo}</p>
+              {libro.tipo == "Serie" && <p>Numero de episodios: {libro.episodios}</p>}
+              <p>Duración: {libro.duracionHs}:{libro.duracionMin < 10 ? `0${libro.duracionMin}` : libro.duracionMin}</p>
+              <p>Idioma original: {libro.idiomaOriginal}</p>
+              <p>Idioma escuchado: {libro.idiomaEscuchado}</p>
+              <p>Puntuación: {libro.puntuacion}</p>
+            </div>
+          </div>
+          <div className="flex gap-8">
+            <Button
+              variant="default"
+              onClick={() => {
+                router.push(`/libros/${libro.id}/edit`);
+              }}
+            >
+              Editar
+            </Button>
+            <Button
+              variant="destructive"
+              onClick={() => handleDeleteLibro(libro.id)}
+            >
+              Eliminar
+            </Button>
           </div>
         </div>
         <div className="flex justify-center items-center" >
